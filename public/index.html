@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Diary</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="">
+    <meta name="theme-color" content="#832">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="script/jquery-2.1.3.min.js"></script>
+    <script src="script/moment.min.js"></script>
+    <script src="script/dropzone.js"></script>
+    <script src="script/sha3.min.js"></script>
+    <script src="script/data.js"></script>
+    <script src="script/func.js"></script>
+    <script src="script/diary.js"></script>
+</head>
+
+<body>
+    <div id="desk" class="blur hide">
+        <div id="cover"><img src="images/wood_texture.jpg"></div>
+        <div id="area">
+
+            <div id="misc">
+                <div id="misc_coffee"><img src="images/coffee.svg"></div>
+                <div id="misc_phone"><img src="images/phone.svg"></div>
+                <div id="misc_glasses"><img src="images/glasses.svg"></div>
+            </div>
+
+            <div id="main">
+
+                <div id="diary_main">
+                    <div id="diary_back"></div>
+                    <div id="diary_spine"></div>
+                    <div id="diary_bottom0"></div>
+                    <div id="diary_bottom"></div>
+                    <div id="diary_bottom1"></div>
+                    <div id="diary_bookmark"></div>
+                    <div id="diary_pages">
+                        <div id="diary_page_tempbox" hidden>
+
+                            <div id="diary_page_temp_memory" class="diary_page_main">
+                                <div class="diary_page_header">
+                                    <span class="diary_page_date"></span>
+                                    <span class="diary_page_day"></span>
+                                    <span class="diary_page_weather"></span>
+                                    <span class="diary_page_emotion"></span>
+                                    <div class="diary_update diary_button">Edit</div>
+                                    <div class="diary_delete diary_button">Delete</div>
+                                    <div class="diary_apply diary_button hide" hidden>Delete</div>
+                                    <div class="diary_cancel diary_button hide" hidden>Go back</div>
+                                    <div class="diary_attention hide" hidden>Really want to DELETE this page?</div>
+                                    <div class="diary_page_thumb" hidden><img src=""></div>
+                                </div>
+                                <div class="diary_page_content">
+                                    <div class="diary_page_title"></div>
+                                    <div class="diary_page_subtitle"></div>
+                                    <div class="diary_page_text"></div>
+                                </div>
+                                <div class="diary_page_foot">
+                                    <div class="diary_page_pageID">1 / 1</div>
+                                    <div class="diary_page_previous diary_button">Previous Page</div>
+                                    <div class="diary_page_next diary_button">Next Page</div>
+                                </div>
+                            </div>
+
+                            <div id="diary_page_temp_index" class="diary_page_main">
+                                <div class="diary_page_header">
+                                </div>
+                                <div class="diary_page_index">
+                                    <div class="diary_page_index_content">
+                                        <div class="diary_page_index_title">Index</div>
+                                        <div class="diary_page_index_alllist"></div>
+                                    </div>
+                                </div>
+                                <div class="diary_page_foot">
+                                    <div class="diary_page_pageID">1 / 1</div>
+                                    <div class="diary_page_previous diary_button">Previous Page</div>
+                                    <div class="diary_page_next diary_button">Next Page</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="diary_page_container" id="diary_edit_container" hidden>
+                            <div class="diary_page" id="diary_page_edit">
+                                <div class="diary_page_main">
+                                    <div class="diary_page_header">
+                                        <span class="diary_page_date diary_edit"></span>
+                                        <span class="diary_page_day diary_edit"></span>
+                                        <span class="diary_page_weather diary_edit"></span>
+                                        <span class="diary_page_emotion diary_edit"></span>
+                                        <div id="diary_edit_apply" class="diary_button">Save</div>
+                                        <div id="diary_edit_cancel" class="diary_button">Cancel</div>
+                                        <div id="diary_edit_attention" class="hide" hidden>Really leave without saving?</div>
+                                        <div id="diary_edit_image" class="diary_page_thumb diary_edit">
+                                            <div id="diary_image_upload" src="">
+                                                <div class="dz-message" id="diary_uploadicon"><img id="" src="images/image.svg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="diary_page_content">
+                                        <div class="diary_page_title">
+                                            <input id="diary_title_edit" type=text placeholder="Type Your Title">
+                                        </div>
+                                        <div class="diary_page_subtitle">
+                                            <input id="diary_subtitle_edit" type=text placeholder="Type Your SubTitle" value="">
+                                        </div>
+                                        <textarea id="diary_content_edit" rows="16" placeholder="Write down your memories"></textarea>
+                                    </div>
+                                    <div class="diary_page_foot">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="diary_page_container" id="diary_last_container">
+                            <div class="diary_page">
+                                <div class="diary_page_main">
+                                    <div class="diary_page_header">
+                                    </div>
+                                    <div id="diary_last_button" class="diary_button">Click here to add New memory!</div>
+                                    <a href="garvitarya.weebly.com" target="_blank">
+                                        <div id="diary_about_button" class="diary_button">
+                                        Presented By Garvit Arya
+                                        </div>
+                                    </a>
+                                    <div class="diary_page_foot">
+                                        <div class="diary_page_pageID">1 / 1</div>
+                                        <div class="diary_page_previous diary_button">Previous Page</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="diary_page_container diary_active_container" content="empty" hidden>
+                            <div class="diary_page">
+                            </div>
+                        </div>
+
+                        <div class="diary_page_container diary_active_container" content="empty" hidden>
+                            <div class="diary_page">
+                            </div>
+                        </div>
+
+                        <div class="diary_page_container" id="diary_first_container">
+                            <div class="diary_page">
+                                <div class="diary_page_main">
+                                    <div class="diary_page_header">
+                                        <div class="diary_page_info">
+                                            <div id="diary_info_text_signup">Please log in or</div>
+                                            <div id="diary_info_text_login" class="hide" hidden>Already has account?</div>
+                                            <div id="diary_info_text_logout" class="hide" hidden>You has logged in as</div>
+                                            <div id="diary_info_signup" class="diary_button">Sign Up</div>
+                                            <div id="diary_info_login" class="diary_button hide" hidden>Log In</div>
+                                            <div id="diary_info_logout" class="diary_button hide" hidden>Log Out</div>
+                                        </div>
+                                    </div>
+                                    <div id="diary_avatar"></div>
+                                    <div>
+                                        <form id="diary_page_form" autocomplete="off" action="/">
+                                            <div id="diary_name" class="hide">Name:
+                                                <input class="diary_input" type="text" name="name" value="" maxlength="20" placeholder="Type Your Name">
+                                            </div>
+                                            <div id="diary_id">ID:
+                                                <input class="diary_input" type="text" name="id" value="" maxlength="16" placeholder="Type Your Login ID">
+                                            </div>
+                                            <div id="diary_password">Password:
+                                                <input class="diary_input" type="password" name="pwd" value="" maxlength="12" placeholder="Type Your Password">
+                                            </div>
+                                            <div id="diary_password_repeat" class="hide">Retype:
+                                                <input class="diary_input" type="password" name="pwd" value="" maxlength="12" placeholder="Type Password Again">
+                                            </div>
+                                            <div id="diary_formbuttons">
+                                                <div id="diary_clear" class="diary_button">Clear</div>
+                                                <div id="diary_signup" class="diary_button disabled hide" hidden>Sign Up</div>
+                                                <div id="diary_login" class="diary_button disabled">Log In</div>
+                                                <div id="diary_formsending" class="shining hide" hidden>Logging in...</div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div id="diary_page_quote" class="hide" hidden></div>
+                                    <div class="diary_page_foot">
+                                        <div class="diary_page_previous diary_button">Close Diary</div>
+                                        <div class="diary_page_next diary_button hide" hidden>Next Page</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="diary_cover_container">
+                            <div id="diary_cover">
+                                <div id="diary_front">
+                                    <div id="diary_title">My Diary</div>
+                                    <div id="diary_icon"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pen_main" hidden>
+                    <img src="images/pen.svg">
+                </div>
+
+                <div id="butterfly_main" class="fly">
+                    <div id="butterfly_left"><img id="butterimg_left" src="images/butter_left.svg"></div>
+                    <div id="butterfly_right"><img id="butterimg_right" src="images/butter_right.svg"></div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="loading_panel">
+        <div id="loading_sticker">
+            <div id="loading_front">
+                <div id="loading_title">
+                    <div>Loading...</div>
+                </div>
+                <div id="loading_text">My Diary</div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
